@@ -18,12 +18,8 @@ sudo chmod u+x prereqs-ubuntu.sh start-jenkins.sh start-jenkins-without-docker.s
 docker exec jenkins cat /var/jenkins_home/secrets/initialAdminPassword
 ```
 ### Jenkins Plugins
-- [Pipeline](https://wiki.jenkins-ci.org/display/JENKINS/Pipeline+Plugin)
-- [Build Pipeline Plugin](https://wiki.jenkins-ci.org/display/JENKINS/Build+Pipeline+Plugin)
 - [Pipeline: AWS Steps](https://wiki.jenkins.io/display/JENKINS/Pipeline+AWS+Plugin)
-- [Amazon ECR plugin](https://wiki.jenkins-ci.org/display/JENKINS/Amazon+ECR)
-- [Docker plugin](http://wiki.jenkins-ci.org/display/JENKINS/Docker+Plugin)
-- [GitLab Plugin](https://wiki.jenkins-ci.org/display/JENKINS/GitLab+Plugin)
 - [NodeJS Plugin](http://wiki.jenkins-ci.org/display/JENKINS/NodeJS+Plugin)
 - [Slack Notification Plugin](http://wiki.jenkins-ci.org/display/JENKINS/Slack+Plugin)
+- [and mores](https://updates.jenkins.io/2.138/latest/)
 
