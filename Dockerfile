@@ -1,22 +1,22 @@
-FROM ubuntu:16.04
+FROM jenkins/jenkins:lts
+
+ENV ANDROID_NDK_PATH "/opt/android/ndk"
+ENV ANDROID_SDK_PATH "/opt/android/sdk"
+ENV ANDROID_HOME "/opt/android/sdk"
+ENV JENKINS_HOME "/var/jenkins_home"
+
+USER root
 
 # Packages
-RUN apt-get update && apt-get install -y software-properties-common debconf-utils apt-transport-https ca-certificates curl zip unzip
-
-# JDK
-RUN add-apt-repository --yes ppa:webupd8team/java
-RUN echo "oracle-java8-installer shared/accepted-oracle-license-v1-1 select true" | debconf-set-selections
-RUN apt-get update && apt-get install -y oracle-java8-installer oracle-java8-set-default
-
-# Jenkins
-RUN wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | apt-key add -
-RUN echo "deb https://pkg.jenkins.io/debian-stable binary/" | tee /etc/apt/sources.list.d/jenkins.list
-RUN apt-get update && apt-get install -y jenkins
+RUN apt-get update && apt-get install -y software-properties-common apt-transport-https ca-certificates curl zip unzip gnupg2
+RUN chown -R jenkins:jenkins $ANDROID_NDK_PATH && \
+  chown -R jenkins:jenkins $ANDROID_SDK_PATH &&\
+  chown -R jenkins:jenkins $JENKINS_HOME
 
 # Docker
-RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - 
-RUN echo "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | \
-	tee /etc/apt/sources.list.d/docker.list	
+RUN curl -fsSL https://download.docker.com/linux/$(. /etc/os-release; echo "$ID")/gpg > /tmp/dkey; apt-key add /tmp/dkey && \
+	add-apt-repository \
+	"deb [arch=amd64] https://download.docker.com/linux/$(. /etc/os-release; echo "$ID") $(lsb_release -cs) stable"
 RUN apt-get update && apt-get install -y docker-ce && \
 	usermod -aG docker $(whoami) && \
 	usermod -aG docker jenkins
@@ -33,10 +33,4 @@ RUN apt-get install -y python-minimal && \
 	rm -r ./awscli-bundle && \
 	rm ./awscli-bundle.zip
 
-# Supervisord
-RUN apt-get install -y supervisor && mkdir -p /var/log/supervisor
-COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-
-EXPOSE 50000 8080
-
-CMD ["/usr/bin/supervisord"]
+USER jenkins
