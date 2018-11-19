@@ -43,6 +43,8 @@ sudo chmod +x /usr/local/bin/docker-compose
 # Android
 export ANDROID_SDK_PATH=/home/$(whoami)/android_sdk
 export ANDROID_NDK_PATH=/home/$(whoami)/android_ndk
+sudo chown -R 1000 $ANDROID_SDK_PATH
+sudo chown -R 1000 $ANDROID_NDK_PATH
 
 if [ -z "$ANDROID_SDK" ]; then
 	export ANDROID_SDK=r25.2.2
@@ -125,7 +127,7 @@ fi
 # Jenkins
 export JENKINS_HOME=/home/$(whoami)/jenkins_home
 mkdir -p $JENKINS_HOME
-# sudo chown -R 1000 $JENKINS_HOME
+sudo chown -R 1000 $JENKINS_HOME
 
 # Print reminder of need to logout in order for these changes to take effect!
 echo ''

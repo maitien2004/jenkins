@@ -6,7 +6,7 @@ export ANDROID_NDK_PATH=/home/$(whoami)/android_ndk
 export JENKINS_HOME=/home/$(whoami)/jenkins_home
 
 # Build
-docker build -t jenkins .
+docker build -t jenkins:lts .
 
 # Start
 docker run -d --name jenkins \
