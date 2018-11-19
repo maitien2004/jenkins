@@ -1,1 +1,3 @@
-nodejs pipeline-aws slack
+nodejs
+pipeline-aws
+slack
