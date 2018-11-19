@@ -9,7 +9,7 @@ docker build -t jenkins .
 ```sh
 docker run -d -p 50000:50000 -p 8080:8080 --name jenkins jenkins:latest
 ```
-### Logs
+### Admin Password
 ```sh
-docker logs jenkins
+docker exec -it jenkins cat /var/lib/jenkins/secrets/initialAdminPassword
 ```
