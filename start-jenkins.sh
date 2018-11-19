@@ -14,4 +14,4 @@ docker run -d --name jenkins \
   -v /var/run/docker.sock:/var/run/docker.sock \
   -v $JENKINS_HOME:/var/jenkins_home \
   -v $ANDROID_NDK_PATH:/opt/android/ndk \
-  -v $ANDROID_SDK_PATH:/opt/android/sdk jenkins/jenkins:lts
+  -v $ANDROID_SDK_PATH:/opt/android/sdk jenkins:lts
