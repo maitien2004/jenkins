@@ -11,5 +11,5 @@ docker run -d -p 50000:50000 -p 8080:8080 --name jenkins jenkins:latest
 ```
 ### Logs
 ```sh
-docker exec -it jenkins cat /var/log/jenkins/jenkins.log
+docker logs jenkins
 ```
