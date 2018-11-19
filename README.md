@@ -15,7 +15,7 @@ sudo chmod u+x prereqs-ubuntu.sh start-jenkins.sh start-jenkins-without-docker.s
 ```
 ### Admin Password
 ```sh
-docker exec -it jenkins cat /var/lib/jenkins/secrets/initialAdminPassword
+docker exec jenkins cat /var/jenkins_home/secrets/initialAdminPassword
 ```
 ### Jenkins Plugins
 - [Pipeline](https://wiki.jenkins-ci.org/display/JENKINS/Pipeline+Plugin)
