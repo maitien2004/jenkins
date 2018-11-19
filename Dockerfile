@@ -9,8 +9,11 @@ USER root
 
 # Packages
 RUN apt-get update && apt-get install -y software-properties-common apt-transport-https ca-certificates curl zip unzip gnupg2
-RUN chown -R jenkins:jenkins $ANDROID_NDK_PATH && \
+RUN mkdir -p $ANDROID_NDK_PATH && \
+  chown -R jenkins:jenkins $ANDROID_NDK_PATH && \
+  mkdir -p $ANDROID_SDK_PATH && \
   chown -R jenkins:jenkins $ANDROID_SDK_PATH &&\
+  mkdir -p $JENKINS_HOME && \
   chown -R jenkins:jenkins $JENKINS_HOME
 
 # Docker
