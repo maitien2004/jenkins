@@ -3,11 +3,15 @@ Ubuntu 16.04 + Jenkins + Docker + Docker Compose + AWS CLI
 
 ### Build
 ```
-docker build -t jenkins .
+sudo chmod u+x prereqs-ubuntu.sh start-jenkins.sh start-jenkins-without-docker.sh && ./prereqs-ubuntu
 ```
-### Run
+### Run with images
 ```sh
-docker run -d -p 50000:50000 -p 8080:8080 --name jenkins jenkins:latest
+./start-jenkins
+```
+### Run without images
+```sh
+./start-jenkins-without-docker
 ```
 ### Admin Password
 ```sh
