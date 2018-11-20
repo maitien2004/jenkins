@@ -3,7 +3,7 @@ Ubuntu 16.04 + Jenkins + Docker + Docker Compose + AWS CLI
 
 ### Prerequisite
 ```
-sudo chmod u+x prereqs-ubuntu.sh start-jenkins.sh start-jenkins-without-docker.sh && ./prereqs-ubuntu.sh
+sudo chmod u+x prereqs-ubuntu.sh start-jenkins.sh build-start-jenkins.sh && ./prereqs-ubuntu.sh
 ```
 ### Run origin Jenkins images
 ```sh
