@@ -43,6 +43,8 @@ sudo chmod +x /usr/local/bin/docker-compose
 # Android
 export ANDROID_SDK_PATH=/home/$(whoami)/android_sdk
 export ANDROID_NDK_PATH=/home/$(whoami)/android_ndk
+mkdir -p $ANDROID_SDK_PATH
+mkdir -p $ANDROID_NDK_PATH
 sudo chown -R 1000 $ANDROID_SDK_PATH
 sudo chown -R 1000 $ANDROID_NDK_PATH
 
