@@ -30,6 +30,7 @@ docker exec -it -u root jenkins bash -c 'apt-get update && \
 	./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws && \
 	rm -r ./awscli-bundle && \
 	rm ./awscli-bundle.zip && \
+	curl https://cli-assets.heroku.com/install-ubuntu.sh | sh && \
 	usermod -aG docker $(whoami) && \
 	usermod -aG docker jenkins'	
 
