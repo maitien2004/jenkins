@@ -1,5 +1,5 @@
 # Jenkins
-Ubuntu 16.04 + Jenkins + Docker + Docker Compose + AWS CLI
+Ubuntu 16.04 + Jenkins + Docker + Docker Compose + AWS CLI + Heroku CLI
 
 ### Prerequisite
 ```
